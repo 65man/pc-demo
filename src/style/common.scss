@@ -1,0 +1,28 @@
+body{
+  background: #f0f2f5;
+}
+.w{
+  width: 1280px;
+  margin: auto;
+}
+.left{
+  float: left;
+}
+
+.right{
+  float: right;
+}
+
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
+.ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
