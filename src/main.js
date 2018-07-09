@@ -4,6 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import './style/index.scss'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import Store from './store/index'
+
+// require styles
+import 'swiper/dist/css/swiper.css'
+
+Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 
@@ -11,6 +18,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  Store,
   components: { App },
   template: '<App/>'
 })

@@ -18,13 +18,9 @@
 </template>
 
 <script>
-import {getHome} from '@/api/index'
 export default {
   data () {
     return {}
-  },
-  mounted () {
-    getHome().then(res => console.log(res))
   }
 }
 </script>
