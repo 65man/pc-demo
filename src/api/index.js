@@ -12,3 +12,5 @@ export const getOrderList = () => axios.get('/api/getOrderList').then(res => res
 export const getNewsList = () => axios.get('/api/getNewsList').then(res => res.data)
 // 轮播图图片
 export const getSwiper = () => axios.get('/api/getSwiper').then(res => res.data)
+// 产品模块信息
+export const getBoardList = () => axios.post('/api/getBoardList', {data: 1}).then(res => res.data)

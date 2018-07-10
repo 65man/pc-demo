@@ -2,10 +2,16 @@
  <div class="scroll">
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
-      <swiper-slide><img src="../../assets/slideShow/pic1.jpg" alt=""></swiper-slide>
-      <swiper-slide><img src="../../assets/slideShow/pic2.jpg" alt=""></swiper-slide>
+      <swiper-slide v-for="(item,index) in slides" :key="index">
+        <!-- <a :href="item.href"> -->
+          <img :src="item.src" alt="">
+        <!-- </a> -->
+      </swiper-slide>
+
+      <!-- <swiper-slide><img src="../../assets/slideShow/pic2.jpg" alt=""></swiper-slide>
       <swiper-slide><img src="../../assets/slideShow/pic3.jpg" alt=""></swiper-slide>
-      <swiper-slide><img src="../../assets/slideShow/pic4.jpg" alt=""></swiper-slide>
+      <swiper-slide><img src="../../assets/slideShow/pic4.jpg" alt=""></swiper-slide> -->
+
       <!-- <swiper-slide>I'm Slide 2</swiper-slide>
       <swiper-slide>I'm Slide 3</swiper-slide>
       <swiper-slide>I'm Slide 4</swiper-slide> -->
@@ -28,6 +34,7 @@ export default {
     swiper,
     swiperSlide
   },
+  props: ['slides'],
   data () {
     return {
       swiperOption: {
@@ -44,7 +51,7 @@ export default {
         //     disableOnInteraction: true,
         // },
         // 设置轮播
-        effect: 'flip',
+        effect: 'slide',
         // 滑动速度
         speed: 800,
         // 滑动方向
@@ -78,8 +85,10 @@ export default {
   },
   mounted () {
     // 可以使用swiper这个对象去使用swiper官网中的那些方法
-    console.log('this is current swiper instance object', this.swiper)
+    // console.log('this is current swiper instance object', this.swiper)
     // this.swiper.slideTo(0, 0, false);
+    console.log(this.slides)
+    console.log(typeof (this.slides))
   }
 }
 </script>

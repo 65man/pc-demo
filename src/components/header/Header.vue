@@ -6,11 +6,11 @@
       </router-link>
       <div class="header-nav right">
         <ul class="nav-list">
-          <li>登录</li>
+          <li @click="logClick">登录</li>
           <li class="nav-pile">|</li>
-          <li>注册</li>
+          <li @click="regClick">注册</li>
           <li class="nav-pile">|</li>
-          <li>关于</li>
+          <li @click="aboutClick">关于</li>
         </ul>
       </div>
     </div>
@@ -21,6 +21,13 @@
 export default {
   data () {
     return {}
+  },
+  methods: {
+    logClick () {
+      this.$emit('login', true)
+    },
+    regClick () {},
+    aboutClick () {}
   }
 }
 </script>
