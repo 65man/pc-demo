@@ -76,6 +76,12 @@ const getBoardList = {
   }]
 }
 
+const login = {
+  'data': {
+    'userName': 'admin'
+  }
+}
+
 Mock.mock('/api/home', template01)
 // 全部产品
 Mock.mock('/api/getOrderList', getOrderList)
@@ -85,3 +91,5 @@ Mock.mock('/api/getNewsList', getNewsList)
 Mock.mock('/api/getSwiper', getSwiper)
 // board的数据
 Mock.mock('/api/getBoardList', 'post', getBoardList)
+// 登录的api
+Mock.mock('/api/login', 'post', login)

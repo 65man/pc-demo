@@ -99,6 +99,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import '@/style/index.scss';
+
 .fade-enter,
 .fade-leave-active {
   opacity: 0;
@@ -125,7 +127,7 @@ export default {
     background: #fff;
     box-shadow: 0 0 1px #ddd;
     h2 {
-      background: #4fc08d;
+      background: $btnColor;
       padding: 10px 15px;
       color: #fff;
     }

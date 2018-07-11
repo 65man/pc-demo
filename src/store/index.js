@@ -8,7 +8,7 @@
 // Vue.use(Vuex)
 
 // const state = {
-//   count: 0
+//   userName: 0
 // }
 // export default new Vuex.Store({
 //   state,
@@ -23,24 +23,24 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  count: 0
+  userName: '111'
 }
 
 const getters = {
-  getCount: state => state.count
+  getUserName: state => state.userName
 }
 const mutations = {
-  increment: state => state.count++,
-  decrement: state => state.count--
+  // increment: state => state.userName++,
+  // decrement: state => state.userName--
 }
 
 const actions = {
-  increment (context) {
-    context.commit('increment')
-  },
-  decrement (context) {
-    context.commit('decrement')
-  }
+  // increment (context) {
+  //   context.commit('increment')
+  // },
+  // decrement (context) {
+  //   context.commit('decrement')
+  // }
 }
 
 export default new Vuex.Store({

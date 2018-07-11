@@ -14,3 +14,5 @@ export const getNewsList = () => axios.get('/api/getNewsList').then(res => res.d
 export const getSwiper = () => axios.get('/api/getSwiper').then(res => res.data)
 // 产品模块信息
 export const getBoardList = () => axios.post('/api/getBoardList', {data: 1}).then(res => res.data)
+// 用户登录
+export const login = (userInfo) => axios.post('/api/login', {userName: userInfo.userName, passWord: userInfo.userPwd}).then(res => res.data)

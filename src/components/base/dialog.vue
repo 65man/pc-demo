@@ -1,10 +1,10 @@
 <template>
   <div class="dialog">
     <div class="dilog-wrap">
-      <div class="dialog-cover" v-show="isShow" ></div>
+      <div class="dialog-cover" v-show="isShow" @click="closeMyself"></div>
       <transition name="drop">
         <div class="dialog-content" v-show="isShow">
-          <div class="dialog-close">X</div>
+          <div class="dialog-close"  @click="closeMyself">x</div>
           <slot>
             <p>empty</p>
           </slot>
@@ -21,22 +21,32 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  methods: {
+    closeMyself () {
+      this.$emit('on-close')
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.drop-enter-active{
+@import '@/style/index.scss';
+
+.drop-enter-active {
   transition: all .5s ease;
 }
-.drop-leave-active{
-  transition: all .5s ease;
+.drop-leave-active {
+  transition: all .3s ease;
 }
-.drop-enter,.drop-leave-acitive{
+.drop-enter {
+  transform: translateY(-500px);
+}
+.drop-leave-active {
   transform: translateY(-500px);
 }
   .dialog{
-    position: fixed;
+    position: relative;
     z-index: 999;
     .dilog-wrap{
       position: fixed;
@@ -65,6 +75,18 @@ export default {
           border: 2px solid #464068;
           padding: 2%;
           line-height: 1.6;
+          .dialog-close{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            cursor: pointer;
+            &:hover{
+              color: $btnColor;
+            }
+          }
         }
     }
   }

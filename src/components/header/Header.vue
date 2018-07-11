@@ -6,9 +6,11 @@
       </router-link>
       <div class="header-nav right">
         <ul class="nav-list">
-          <li @click="logClick">登录</li>
+          <li v-if="isLogin">{{$store.getters.getUserName}}</li>
+          <li v-if="!isLogin" @click="logClick">登录</li>
           <li class="nav-pile">|</li>
-          <li @click="regClick">注册</li>
+          <li v-if="!isLogin" @click="regClick">注册</li>
+          <li v-if="isLogin" >退出</li>
           <li class="nav-pile">|</li>
           <li @click="aboutClick">关于</li>
         </ul>
@@ -18,16 +20,30 @@
 </template>
 
 <script>
+import eventBus from '@/utils/eventBus.js'
 export default {
   data () {
-    return {}
+    return {
+      isLogin: false
+    }
   },
   methods: {
     logClick () {
       this.$emit('login', true)
     },
-    regClick () {},
-    aboutClick () {}
+    regClick () {
+      this.$emit('reg', true)
+    },
+    aboutClick () {
+      this.$emit('about', true)
+    }
+  },
+  mounted () {
+    eventBus.$on('has-log', val => {
+      console.log(666)
+      this.isLogin = true
+      this.$emit('loginSuccess')
+    })
   }
 }
 </script>
@@ -40,20 +56,20 @@ export default {
   height: 90px;
   line-height: 90px;
   width: 100%;
-  .header-inner{
+  .header-inner {
     color: #b2b2b2;
-    img{
+    img {
       height: 50px;
       vertical-align: middle;
     }
   }
-  .header-nav{
-    .nav-list{
-      >li{
+  .header-nav {
+    .nav-list {
+      > li {
         float: left;
         cursor: pointer;
       }
-      .nav-pile{
+      .nav-pile {
         padding: 0 10px;
       }
     }
